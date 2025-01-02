@@ -1,0 +1,22 @@
+{
+  "name": "language-efficiency-tests",
+  "version": "1.0.0",
+  "description": "A node.js, rust, python, c, and java program used to test the speed of the most used programming languages in the world.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Tested successfully!\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crazystuffofficial/language-efficiency-tests.git"
+  },
+  "author": "Shayaan Hooda",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/crazystuffofficial/language-efficiency-tests/issues"
+  },
+  "homepage": "https://github.com/crazystuffofficial/language-efficiency-tests#readme",
+  "dependencies": {
+    "xlsx": "^0.18.5"
+  }
+}
