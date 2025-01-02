@@ -14,6 +14,6 @@ if __name__ == "__main__":
     execution_time = (end_time_ns - start_time_ns) / 1_000_000
     with open("log.txt", "a") as log:
         log.write("Python: \n")
-        log.write(f"Execution time: {execution_time:.9f} ms\n")
+        log.write(f"Execution time: {execution_time:.9f}ms\n")
         log.write(f"Memory usage change: {(end_memory - start_memory) / 1024:.2f} KB\n")
         log.write(f"CPU usage: {end_cpu_percent:.2f}%\n\n")
