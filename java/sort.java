@@ -6,7 +6,7 @@ import java.lang.management.MemoryUsage;
 import com.sun.management.OperatingSystemMXBean;
 import java.util.Arrays;
 import java.util.Collections;
-public class Sort {
+public class sort {
     public static void main(String[] args) throws IOException {
         int size = 1_000_000;
         Integer[] arr = new Integer[size];
