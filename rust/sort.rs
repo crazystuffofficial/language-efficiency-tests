@@ -1,11 +1,14 @@
+use std::fs::OpenOptions;
+use std::io::Write;
 use std::time::Instant;
+use sysinfo::{System, SystemExt, ProcessorExt, CpuExt};
 
 fn bubble_sort(arr: &mut Vec<i32>) {
     let n = arr.len();
     for i in 0..n {
-        for j in 0..n-i-1 {
-            if arr[j] > arr[j+1] {
-                arr.swap(j, j+1);
+        for j in 0..n - i - 1 {
+            if arr[j] > arr[j + 1] {
+                arr.swap(j, j + 1);
             }
         }
     }
@@ -49,9 +52,38 @@ fn main() {
     7914, 5938, 9074, 9839, 5602, 7949, 2061, 3387, 3443, 3972,
     2922, 5194, 3743, 3384, 3649, 2798, 3580, 9814, 4579, 3038,
     5042, 7429, 3540, 7806, 2755, 3041, 2229, 3006, 2111, 9764];
+
+    let mut sys = System::new_all();
+
+    // Record initial system state
+    sys.refresh_all();
+    let initial_memory = sys.used_memory();
+    let initial_cpu = sys.global_cpu_info().cpu_usage();
+
     let start = Instant::now();
     bubble_sort(&mut arr);
     let duration = start.elapsed();
-    println!("Sorted array: {:?}", arr);
-    println!("Execution time: {:?}", duration);
+
+    // Record final system state
+    sys.refresh_all();
+    let final_memory = sys.used_memory();
+    let final_cpu = sys.global_cpu_info().cpu_usage();
+
+    let memory_change = final_memory as isize - initial_memory as isize;
+    let cpu_change = final_cpu - initial_cpu;
+
+    // Log results to a file
+    let mut file = OpenOptions::new()
+        .write(true)
+        .append(true)
+        .create(true)
+        .open("logs.txt")
+        .expect("Unable to open file");
+
+    writeln!(file, "Sorted array: {:?}", arr).unwrap();
+    writeln!(file, "Execution time: {:?}", duration).unwrap();
+    writeln!(file, "Change in memory usage: {} KB", memory_change).unwrap();
+    writeln!(file, "Change in CPU usage: {:.2}%", cpu_change).unwrap();
+
+    println!("Results logged to logs.txt");
 }
