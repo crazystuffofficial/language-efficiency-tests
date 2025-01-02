@@ -69,7 +69,7 @@ int main() {
         return 1;
     }
     fprintf(log, "C:\n");
-    fprintf(log, "Execution time: %.9f ms\n", time_taken);
+    fprintf(log, "Execution time: %.9fms\n", time_taken);
     fprintf(log, "Memory usage change: %ld KB\n", memory_change);
     fprintf(log, "CPU usage: %.2f%%\n\n", cpu_usage);
     fclose(log);
