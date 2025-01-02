@@ -1,0 +1,12 @@
+[package]
+name = "language-efficiency-tests"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+procfs = "0.13"
+sysinfo = "0.27"
+
+[[bin]]
+name = "language-efficiency-tests"
+path = "sort.rs"
