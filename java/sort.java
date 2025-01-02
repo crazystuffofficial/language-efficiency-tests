@@ -29,7 +29,7 @@ public class sort {
         double cpuUsage = elapsedCpuTime / elapsedTime * 100;
         try (FileWriter log = new FileWriter("log.txt", true)) {
             log.write("Java:\n");
-            log.write("Execution time: " + elapsedTime/1_000_000 + " ms\n");
+            log.write("Execution time: " + elapsedTime/1_000_000 + "ms\n");
             log.write("Memory usage change: " + (usedMemoryAfter - usedMemoryBefore) / 1024 + " KB\n");
             log.write(String.format("CPU usage: %.2f%%\n\n", cpuUsage));
         } catch (IOException e) {
