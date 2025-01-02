@@ -18,12 +18,11 @@ function createChildProcess(command, args, cwd) {
     return child;
 }
 
-// Create child processes
 const processes = [
-    createChildProcess('bash', ['-c', 'gcc sort.c -o sort && while true; do ./sort; done'], 'c'),
-    createChildProcess('bash', ['-c', 'javac sort.java && while true; do java sort; done'], 'java'),
-    createChildProcess('bash', ['-c', 'while true; do cargo run; done'], 'rust'),
-    createChildProcess('bash', ['-c', 'while true; do python sort.py; done'], 'python'),
+    createChildProcess('bash', ['-c', 'cd c && gcc sort.c -o sort && while true; do ./sort; done'], 'c'),
+    createChildProcess('bash', ['-c', 'cd java && javac sort.java && while true; do java sort; done'], 'java'),
+    createChildProcess('bash', ['-c', 'cd rust && while true; do cargo run; done'], 'rust'),
+    createChildProcess('bash', ['-c', 'cd python && while true; do python sort.py; done'], 'python'),
 ];
 
 function terminateProcesses() {
