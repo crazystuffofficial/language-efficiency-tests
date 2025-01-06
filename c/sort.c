@@ -82,7 +82,7 @@ int main() {
 
     fprintf(log, "C:\n");
     fprintf(log, "Elapsed time: %.9f seconds\n", elapsed_time);
-    fprintf(log, "CPU usage change: %.2f%%\n", cpu_percentage);
+    fprintf(log, "CPU usage change: %.2f%%\n\n", cpu_percentage);
     fclose(log);
 
     free(arr);
