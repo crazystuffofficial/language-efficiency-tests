@@ -16,8 +16,4 @@ git clone https://github.com/crazystuffofficial/language-efficiency-tests && cd 
 
 Prerequisites:
 
-Node.js
-Javac & java
-GCC
-Python
-Cargo
+Node.js, java, GCC, Python, and Cargo
